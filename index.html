@@ -1,92 +1,77 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <!-- Skrip Iklan/Tag Anda -->
-    <script src="https://quge5.com/88/tag.min.js" data-zone="273058" async data-cfasync="false"></script>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirect Gateway</title>
+
+    <title>Website View</title>
+
+    <!-- Skrip Iklan/Tag Anda -->
+    <script
+        src="https://quge5.com/88/tag.min.js"
+        data-zone="273058"
+        async
+        data-cfasync="false">
+    </script>
+
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #121212;
-            color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        * {
             margin: 0;
-            text-align: center;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .container {
-            padding: 30px;
-            background: #1e1e1e;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-            max-width: 400px;
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #000;
         }
-        button {
-            background-color: #00ffaa;
-            color: #121212;
+
+        #websiteView {
+            width: 100%;
+            height: 100%;
             border: none;
-            padding: 12px 24px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            margin-top: 15px;
+            display: block;
         }
-        button:hover {
-            background-color: #00cc88;
-        }
-        .countdown {
-            font-size: 14px;
-            color: #aaaaaa;
-            margin-top: 10px;
+
+        #status {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9999;
+            padding: 8px 14px;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.75);
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
         }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <h2>Selamat Datang</h2>
-    <p>Silakan klik tombol di bawah untuk membuka situs utama.</p>
-    
-    <!-- Tombol untuk memicu pembukaan tab baru secara aman agar tidak diblokir peramban -->
-    <button id="startBtn" onclick="mulaiProses()">Buka Situs</button>
-    
-    <div id="statusArea" class="countdown" style="display:none;">
-        Membuka tab baru dan mengalihkan halaman dalam <span id="timer">5</span> detik...
-    </div>
-</div>
+    <iframe
+        id="websiteView"
+        src="https://abangadekganteng.pages.dev/"
+        title="ABANGADEKGANTENG">
+    </iframe>
 
-<script>
-function mulaiProses() {
-    // 1. Sembunyikan tombol dan munculkan hitung mundur
-    document.getElementById('startBtn').style.display = 'none';
-    document.getElementById('statusArea').style.display = 'block';
-    
-    // 2. Langsung buka tab baru berisi damaged.pages.dev/ agar tidak terkena Popup Blocker
-    var tabBaru = window.open('https://pages.dev', '_blank');
-    
-    var detik = 5;
-    var timerElement = document.getElementById('timer');
-    
-    // 3. Menjalankan hitung mundur selama 5 detik
-    var interval = setInterval(function() {
-        detik--;
-        timerElement.textContent = detik;
-        
-        if (detik <= 0) {
-            clearInterval(interval);
-            // 4. Setelah 5 detik, alihkan tab saat ini ke abangadekganteng.pages.dev
-            window.location.href = 'https://abangadekganteng.pages.dev';
-        }
-    }, 1000);
-}
-</script>
+    <div id="status">
+        Membuka halaman baru dalam 5 detik...
+    </div>
+
+    <script>
+        setTimeout(function () {
+            window.open(
+                "https://damaged.pages.dev/",
+                "_blank"
+            );
+        }, 5000);
+    </script>
 
 </body>
 </html>
